@@ -1,0 +1,39 @@
+<h1 class="sub-header">List your farm!</h1>
+
+<%= form_for(@farm) do |f| %>
+  <div class="field column small-12">
+    <%= f.label :name, class: "text-input-label" %><br>
+    <%= f.text_field :name, class: "text-input-field", placeholder: "Grub Worm Farms" %>
+  </div>
+  <div class="field column small-12">
+    <%= f.label :email, class: "text-input-label" %><br>
+    <%= f.email_field :email, class: "text-input-field", placeholder: "grub@email.com" %>
+  </div>
+  <div class="field column small-12">
+    <%= f.label :phone, class: "text-input-label" %><br>
+    <%= f.text_field :phone, class: "text-input-field", placeholder: "111-222-3333"%>
+  </div>
+  <div class="field column small-12">
+    <%= f.label :address, class: "text-input-label" %><br>
+    <%= f.text_field :address, class: "text-input-field", placeholder: "123 Farm Rd." %>
+  </div>
+  <div class="field column small-12">
+    <%= f.label :city, "City", class: "text-input-label" %><br>
+    <%= f.text_field :city, class: "text-input-field", placeholder: "Ourtown" %>
+  </div>
+  <br>
+  <div class="field column small-12">
+    <%= f.label :state, "State", class: "text-input-label" %><br>
+    <%= f.text_field :state, class: "text-input-field", placeholder: "ie - VA" %>
+  </div>
+  <br>
+  <div class="field column small-12">
+    <%= f.label :zip, "Zip Code", class: "text-input-label" %><br>
+    <%= f.text_field :zip, class: "text-input-field", placeholder: "02139" %>
+  </div>
+  <br>
+
+  <div class="actions">
+    <%= f.submit "Add your Farm!", class: "farm-crud-buttons button expand round medium" %>
+  </div>
+<% end %>
