@@ -9,6 +9,9 @@ class CreateFarms < ActiveRecord::Migration
       t.string :city
       t.string :state
       t.string :zip
+
+      t.timestamps null: false
     end
+    add_index :farms, :name, { unique: true }
   end
 end

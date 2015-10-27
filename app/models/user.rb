@@ -5,14 +5,18 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   validates :name, presence: true
   validates :farmer, inclusion: [true, false]
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  validates :foodie, inclusion: [true, false]
+
   def farmer?
     farmer
   end
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  def foodie?
+    foodie
+  end
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
 end

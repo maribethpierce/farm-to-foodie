@@ -1,5 +1,5 @@
 class Farm < ActiveRecord::Base
-  has_one :user
+  belongs_to :user
   has_many :products
   has_many :orders
   has_many :foodies, through: :orders
