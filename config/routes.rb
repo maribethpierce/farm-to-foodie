@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   root 'farms#index'
   devise_for :users
-  resources :farms
+  resources :farms, only: [:index, :show]
+  resources :users do
+    resources :farms
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

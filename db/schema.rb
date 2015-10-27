@@ -11,23 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151020183801) do
+ActiveRecord::Schema.define(version: 20151025001545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "farms", force: :cascade do |t|
-    t.string  "name",    null: false
-    t.string  "email"
-    t.integer "user_id", null: false
-    t.string  "phone"
-    t.string  "address"
-    t.string  "city"
-    t.string  "state"
-    t.string  "zip"
+    t.string   "name",       null: false
+    t.string   "email"
+    t.integer  "user_id",    null: false
+    t.string   "phone"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "market", force: :cascade do |t|
+  add_index "farms", ["name"], name: "index_farms_on_name", unique: true, using: :btree
+
+  create_table "markets", force: :cascade do |t|
     t.string  "day_of_week", null: false
     t.string  "location",    null: false
     t.integer "farm_id"

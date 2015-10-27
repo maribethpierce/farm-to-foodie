@@ -1,5 +1,25 @@
-list of farms will be here
-if user = farmer:
-<%= button_to "List your farm", new_farm_path, method: :get %>
-else:
-maps of local farms
+<% content_for :nav do %>
+  <% if user_signed_in? %>
+    <% if @user.farmer? %>
+      <% if @user.farm.nil? %>
+        <%= link_to "List My Farm", new_user_farm_path(@user) %>
+      <% else %>
+        <%= link_to "My Farm", user_farm_path(@user.id, @user.farm) %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+<h1>
+Farm to Foodie
+</h1>
+<p>
+  Welcome
+</p>
+<h4>Farms</h4>
+<div class="farm-links">
+  <% @farms.each do |farm| %>
+    <div class="farm-links">
+        <%= link_to farm.name, farm_path(farm) %><br>
+    </div>
+  <% end %>
+</div>

@@ -3,11 +3,14 @@ class FarmsController < ApplicationController
 
   def index
     @farms = Farm.all
+    @user = current_user
   end
 
   def show
     @farm = Farm.find(params[:id])
-    @produce = @farm.products
+    @market = @farm.markets
+    @user = @farm.user
+    # @produce = @farm.products
   end
 
   def new
@@ -42,6 +45,14 @@ class FarmsController < ApplicationController
       redirect_to root_path
     else
       flash[:errors] = @farm.errors.full_messages.join('. ')
+      redirect_to root_path
+    end
+  end
+
+  def destroy
+    @farm = Farm.find(params[:id])
+    if @farm.destroy
+      flash[:notice] = "Farm deleted"
       redirect_to root_path
     end
   end
