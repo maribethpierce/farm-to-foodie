@@ -11,14 +11,19 @@
 <%= @farm.city %>,
 <%= @farm.state %>
 <%= @farm.zip %>
+<%= @farm.latitude %>
+<%= @farm.longitude %>
 </div>
-<div id="map"></div>
+<div id="map" data-lat="<%= @farm.latitude %>" data-lng="<%= @farm.longitude %>"></div>
   <script type="text/javascript">
     var map;
+    alert gon.lat
     function initMap() {
+      var myLatLng = {lat: #map('data-lat'), lng: #map('data-lng')};
       map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: -34.397, lng: 150.644},
-        zoom: 8
+        center: myLatLng,
+        scrollwheel: false,
+        zoom: 9
       });
     }
   </script>

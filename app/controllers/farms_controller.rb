@@ -10,6 +10,10 @@ class FarmsController < ApplicationController
     @farm = Farm.find(params[:id])
     @market = @farm.markets
     @user = @farm.user
+    @lat = @farm.latitude
+    @lng = @farm.longitude
+    # gon.lat = @farm.latitude
+    # gon.lat = @farm.longitude
     # @produce = @farm.products
   end
 
