@@ -1,9 +1,11 @@
 class Farm < ActiveRecord::Base
+# extend ::Geocoder::Model::ActiveRecord
   belongs_to :user
   has_many :products
   has_many :orders
   has_many :foodies, through: :orders
   has_many :markets
+  has_one :mapmarker
 
   validates :name, presence: true
   validates :email, uniqueness: true
@@ -13,4 +15,13 @@ class Farm < ActiveRecord::Base
   validates :city, length: { maximum: 25 }
   validates :state, length: { maximum: 2 }
   validates :zip, numericality: true, length: { is: 5 }
+  validates :longitude, numericality: true
+  validates :latitude, numericality: true
+
+  # attr_accessible :address, :city, :state, :zip, :latitude, :longitude
+  geocoded_by :full_address
+  after_validation :geocode, :if => :address_changed?
+  def full_address
+    "#{address}, #{city}, #{state}, #{zip}"
+  end
 end

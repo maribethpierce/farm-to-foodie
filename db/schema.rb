@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151025001545) do
+ActiveRecord::Schema.define(version: 20151027183328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,9 +27,19 @@ ActiveRecord::Schema.define(version: 20151025001545) do
     t.string   "zip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "farms", ["name"], name: "index_farms_on_name", unique: true, using: :btree
+
+  create_table "map_markers", force: :cascade do |t|
+    t.float    "latitude",   null: false
+    t.float    "longitude",  null: false
+    t.integer  "farm_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "markets", force: :cascade do |t|
     t.string  "day_of_week", null: false
