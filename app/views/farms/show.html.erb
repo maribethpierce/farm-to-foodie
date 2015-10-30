@@ -1,6 +1,6 @@
   <style type="text/css">
     html, body { height: 100%; margin: 0; padding: 0; }
-    #map { height: 40%; }
+    #farm-map { height: 40%; }
   </style>
 <div class="farm-title">
   <h1><%= @farm.name %></h1>
@@ -14,22 +14,19 @@
 <%= @farm.latitude %>
 <%= @farm.longitude %>
 </div>
-<div id="map" data-lat="<%= @farm.latitude %>" data-lng="<%= @farm.longitude %>"></div>
-  <script type="text/javascript">
-    var map;
-    alert gon.lat
-    function initMap() {
-      var myLatLng = {lat: #map('data-lat'), lng: #map('data-lng')};
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: myLatLng,
-        scrollwheel: false,
-        zoom: 9
-      });
-    }
-  </script>
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?<%key=["GOOGLEMAPSAPIKEY"]%>&callback=initMap">
-  </script>
+<div class="row">
+  <!-- <script async defer
+    src="https://maps.googleapis.com/maps/api/js?<%key=["GOOGLE_MAPS_API_KEY"]%>&callback=initMap">
+  </script> -->
+  <div class="farm-info small-8 small centered columns">
+    <div id="farm-map"
+      data-farm=<%= @farm.name %>
+      data-lat=<%= @farm.latitude %>
+      data-lng=<%= @farm.longitude %> >
+    </div>
+  </div>
+</div>
+
 <% if current_user == @user %>
   <%= button_to "Update Information", edit_user_farm_path(@user, @farm), class: 'farm-buttons button expand round meduim', method: :get %>
 <% end %>

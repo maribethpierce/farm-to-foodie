@@ -33,14 +33,6 @@ ActiveRecord::Schema.define(version: 20151027183328) do
 
   add_index "farms", ["name"], name: "index_farms_on_name", unique: true, using: :btree
 
-  create_table "map_markers", force: :cascade do |t|
-    t.float    "latitude",   null: false
-    t.float    "longitude",  null: false
-    t.integer  "farm_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "markets", force: :cascade do |t|
     t.string  "day_of_week", null: false
     t.string  "location",    null: false
