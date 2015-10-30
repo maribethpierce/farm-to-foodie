@@ -1,30 +1,47 @@
-  <style type="text/css">
-    html, body { height: 100%; margin: 0; padding: 0; }
-    #farm-map { height: 40%; }
-  </style>
-<div class="farm-title">
-  <h1><%= @farm.name %></h1>
+<style type="text/css">
+  html, body { height: 100%; margin: 0; padding: 0; }
+  #farm-map { height: 40%; }
+</style>
+<div class="sideshow small-1 medium-3 large-4 centered columns">
+  <h1></h1>
 </div>
-<div class="farm-info">
-<%= @farm.email %><br>
-<%= @farm.address %><br>
-<%= @farm.city %>,
-<%= @farm.state %>
-<%= @farm.zip %>
-</div>
-<!-- <div class="row"> -->
-  <!-- <script async defer
-    src="https://maps.googleapis.com/maps/api/js?<%key=["GOOGLE_MAPS_API_KEY"]%>&callback=initMap">
-  </script> -->
-  <!-- <div class="farm-info  small-8 small centered columns"> -->
-    <div id="farm-map"
-      data-farm=<%= @farm.name %>
-      data-lat=<%= @farm.latitude %>
-      data-lng=<%= @farm.longitude %> >
-    </div>
-  <!-- </div> -->
-<!-- </div> -->
+<div class="row">
 
-<% if current_user == @user %>
-  <%= button_to "Update Information", edit_user_farm_path(@user, @farm), class: 'farm-buttons button expand round meduim', method: :get %>
-<% end %>
+<div id="form-box" class="farm-info small-10 medium-6 large-4 centered columns">
+    <h1><%= @farm.name %></h1>
+  <div>
+    <h3>What's in season?</h3>
+    <ul>
+    <% @products.each do |produce| %>
+      <li><%= produce.item %><br>
+      $<%= produce.price %> per <%= produce.quantity %></li>
+    </ul>
+    <% end %>
+  </div>
+  <div class="farm-info  small-6 centered columns" id="farm-map"
+    data-farm=<%= @farm.name %>
+    data-lat=<%= @farm.latitude %>
+    data-lng=<%= @farm.longitude %> >
+  </div>
+  <div class="row">
+
+  </div>
+  <div class="farm-info">
+    <%= @farm.email %><br>
+    <%= @farm.address %><br>
+    <%= @farm.city %>,
+    <%= @farm.state %>
+    <%= @farm.zip %>
+  </div>
+
+  <% if current_user == @user %>
+  <div class="field column small-12">
+    <%= f.label :product, "Product", class: "text-input-label" %><br>
+    <%= f.text_field :product, class: "text-input-field", placeholder: "#{@farm.zip}" %>
+  </div>
+  <br>
+    <%= button_to "Update Information", edit_user_farm_path(@user, @farm), class: 'farm-buttons button expand round meduim', method: :get %>
+    <%= button_to "Delete Farm", user_farm_path(@user, @farm), class: 'farm-buttons button expand round meduim' %>
+  <% end %>
+</div>
+</div>

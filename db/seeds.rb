@@ -1,46 +1,58 @@
-User.create!(
+User.create(
   name: "Maribeth",
   email: "maribeth@email.com",
   password: "password",
   farmer: true)
 
-User.create!(
+# User.new(
+#   name: "Maribeth",
+#   password: "password",
+#   email: "maribeth@email.com",
+#   farmer: true)
+
+
+User.create(
   name: "Al",
   email: "al@email.com",
   password: "password",
+  password_confirmation: "password",
   farmer: true)
 
-User.create!(
+User.create(
   name: "Katy",
   email: "katy@email.com",
   password: "password",
+  password_confirmation: "password",
   farmer: true)
 
-User.create!(
+User.create(
   name: "Remi",
   email: "remi@email.com",
+  password_confirmation: "password",
   password: "password",
   foodie: true)
 
-User.create!(
+User.create(
   name: "Rhunell",
   email: "rhunell@email.com",
   password: "password",
+  password_confirmation: "password",
   foodie: true)
 
-User.create!(
+User.create(
   name: "Marian",
   email: "marian@email.com",
   password: "password",
+  password_confirmation: "password",
   foodie: true)
 
-User.create!(
+User.create(
   name: "Don",
   email: "don@email.com",
   password: "password",
   farmer: true)
 
-Farm.find_or_create_by!(
+Farm.create(
     name: "Red Sled Farm",
     email: User.first.email,
     user: User.first,
@@ -52,7 +64,7 @@ Farm.find_or_create_by!(
     latitude: 35.3110,
     longitude: -82.7873)
 
-Farm.find_or_create_by!(
+Farm.create(
     name: "Red Barn Farm",
     email: User.last.email,
     user: User.last,
@@ -64,7 +76,7 @@ Farm.find_or_create_by!(
     latitude: 36.3094,
     longitude: -81.5953)
 
-Farm.find_or_create_by!(
+Farm.create(
     name: "Red Shed Farm",
     email: User.second.email,
     user: User.second,
@@ -76,7 +88,7 @@ Farm.find_or_create_by!(
     latitude: 35.2367463,
     longitude: -84.1896395)
 
-Farm.find_or_create_by!(
+Farm.create(
     name: "Red Boot Farm",
     email: User.third.email,
     user: User.third,
@@ -88,22 +100,57 @@ Farm.find_or_create_by!(
     latitude: 35.4408,
     longitude: -82.2528)
 
-Market.find_or_create_by!(
+Market.create(
   farm: Farm.first,
   day_of_week: "Monday",
   location: "on the corner")
 
-Market.find_or_create_by!(
+Market.create(
   farm: Farm.second,
   day_of_week: "Tuesday",
   location: "at the end of the sidewalk")
 
-Market.find_or_create_by!(
+Market.create(
   farm: Farm.second,
   day_of_week: "Wednesday",
   location: "in the parking lot")
 
-Market.find_or_create_by!(
-  farm: Farm.third,
+Market.create(
+  farm: Farm.first,
   day_of_week: "Thursday",
   location: "at your house")
+
+Product.create(
+  farm: Farm.second,
+  item: "barley",
+  quantity: "bushel",
+  price: 3.75,
+  expiration: Date.new(2009,9,14,8))
+
+Product.create(
+  farm: Farm.third,
+  item: "malt",
+  quantity: "bushel",
+  price: 4.25,
+  expiration: Date.new(2009,9,14,8))
+
+Product.create(
+  farm: Farm.fourth,
+  item: "hops",
+  quantity: "bushel",
+  price: 5.37,
+  expiration: Date.new(2009,9,14,8))
+
+Product.create(
+  farm: Farm.first,
+  item: "bottles",
+  quantity: "case",
+  price: 1.24,
+  expiration: Date.new(2009,9,14,8))
+
+Product.create(
+  farm: Farm.last,
+  item: "bottle caps",
+  quantity: "bushel",
+  price: 17.54,
+  expiration: Date.new(2009,9,14,8))

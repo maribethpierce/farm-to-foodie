@@ -9,17 +9,27 @@
     <% end %>
   <% end %>
 <% end %>
-<h1>
-Farm to Foodie
-</h1>
-<p>
-  Welcome
-</p>
-<h4>Farms</h4>
-<div class="farm-links">
-  <% @farms.each do |farm| %>
+<div class="sideshow small-1 medium-3 large-4 centered columns">
+  <h1></h1>
+</div>
+<div class="row">
+  <div id="form-box" class="farm-info small-10 medium-6 large-4 centered columns">
+    <h1>
+    Farm to Foodie
+    </h1>
+    <p>
+      Welcome
+    </p>
+    <h4>Farms</h4>
     <div class="farm-links">
-        <%= link_to farm.name, farm_path(farm) %><br>
+      <% @farms.each do |farm| %>
+        <div class="farm-links">
+            <%= link_to farm.name, farm_path(farm) %><br>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+</div>
+<div class="sideshow small-1 medium-3 large-4 centered columns">
+  <h1></h1>
 </div>

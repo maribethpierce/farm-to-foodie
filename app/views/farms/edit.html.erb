@@ -1,0 +1,46 @@
+<h1 class="sub-header">List your farm!</h1>
+<div id="form-box" class="">
+
+<%= form_for(@farm) do |f| %>
+  <div class="field column small-12">
+    <%= f.label :name, class: "text-input-label" %><br>
+    <%= f.text_field :name, class: "text-input-field", placeholder: "#{@farm.name}" %>
+  </div>
+  <div class="field column small-12">
+    <%= f.label :email, class: "text-input-label" %><br>
+    <%= f.email_field :email, class: "text-input-field", placeholder: "#{@farm.email}" %>
+  </div>
+  <div class="field column small-12">
+    <%= f.label :phone, class: "text-input-label" %><br>
+    <%= f.text_field :phone, class: "text-input-field", placeholder: "#{@farm.phone}"%>
+  </div>
+  <div class="field column small-12">
+    <%= f.label :address, class: "text-input-label" %><br>
+    <%= f.text_field :address, class: "text-input-field", placeholder: "#{@farm.address}" %>
+  </div>
+  <div class="field column small-12">
+    <%= f.label :city, "City", class: "text-input-label" %><br>
+    <%= f.text_field :city, class: "text-input-field", placeholder: "#{@farm.city}" %>
+  </div>
+  <br>
+  <div class="field column small-12">
+    <%= f.label :state, "State", class: "text-input-label" %><br>
+    <%= f.text_field :state, class: "text-input-field", placeholder: "#{@farm.state}" %>
+  </div>
+  <br>
+  <div class="field column small-12">
+    <%= f.label :zip, "Zip Code", class: "text-input-label" %><br>
+    <%= f.text_field :zip, class: "text-input-field", placeholder: "#{@farm.zip}" %>
+  </div>
+  <br>
+  <div class="field column small-12">
+    <%= f.label :zip, "Zip Code", class: "text-input-label" %><br>
+    <%= f.text_field :zip, class: "text-input-field", placeholder: "#{@farm.zip}" %>
+  </div>
+  <br>
+
+  <div class="actions">
+    <%= f.submit "Add your Farm!", class: "farm-crud-buttons button expand round medium" %>
+  </div>
+<% end %>
+</div>

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :farmer, inclusion: [true, false]
   validates :foodie, inclusion: [true, false]
-
+  
   def farmer?
     farmer
   end
