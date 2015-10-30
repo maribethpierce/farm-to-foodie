@@ -12,9 +12,8 @@ class FarmsController < ApplicationController
     @user = @farm.user
     @lat = @farm.latitude
     @lng = @farm.longitude
-    # gon.lat = @farm.latitude
-    # gon.lat = @farm.longitude
-    # @produce = @farm.products
+    @products = @farm.products.to_a
+    # binding.pry
   end
 
   def new
