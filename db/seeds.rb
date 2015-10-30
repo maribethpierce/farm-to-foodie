@@ -46,9 +46,11 @@ Farm.find_or_create_by!(
     user: User.first,
     phone: "1233453456",
     address: "234 Old Farm Rd.",
-    city: "Slippery Rock",
+    city: "Sliding Rock",
     state: "NC",
-    zip: "28694")
+    zip: "28768",
+    latitude: 35.3110,
+    longitude: -82.7873)
 
 Farm.find_or_create_by!(
     name: "Red Barn Farm",
@@ -58,7 +60,9 @@ Farm.find_or_create_by!(
     address: "456 Lost Hollar",
     city: "Todd",
     state: "NC",
-    zip: "28694")
+    zip: "28684",
+    latitude: 36.3094,
+    longitude: -81.5953)
 
 Farm.find_or_create_by!(
     name: "Red Shed Farm",
@@ -66,9 +70,11 @@ Farm.find_or_create_by!(
     user: User.second,
     phone: "1233453456",
     address: "567 Slip Stitch Pass",
-    city: "Mossy Gap",
+    city: "Moss Gap",
     state: "NC",
-    zip: "28694")
+    zip: "28906",
+    latitude: 35.2367463,
+    longitude: -84.1896395)
 
 Farm.find_or_create_by!(
     name: "Red Boot Farm",
@@ -78,7 +84,9 @@ Farm.find_or_create_by!(
     address: "908 Hop Skip Jump Cir",
     city: "Burnt Chimney",
     state: "NC",
-    zip: "28694")
+    zip: "28043",
+    latitude: 35.4408,
+    longitude: -82.2528)
 
 Market.find_or_create_by!(
   farm: Farm.first,
