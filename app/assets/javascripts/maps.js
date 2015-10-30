@@ -3,7 +3,7 @@ if ($("#farm-map").length > 0) {
   var latitude = showdata.lat;
   var longitude = showdata.lng;
   var name = showdata.farm
-  var farmLocation=new google.maps.LatLng(latitude, longitude);
+  var farmLocation = new google.maps.LatLng(latitude, longitude);
 
   $(document).ready(initializeFarmMap(farmLocation));
 }
