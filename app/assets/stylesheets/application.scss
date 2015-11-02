@@ -15,3 +15,26 @@
  *= require foundation_and_overrides
 
  */
+.farm-info .farm-title {
+  text-align: left;
+  margin-left: 10px;
+  text-outline: white;
+}
+.farm-info .farm-title h1 {
+  margin: 0;
+  color: silver;
+}
+.farm-info .farm-details {
+  text-align: right;
+  margin-right: 0;
+}
+.farm-info .farm-details p {
+  padding-bottom: 1em;
+  color: silver;
+}
+.farm-info {
+  background-color: rgba(149, 67, 31, 0.70);
+  margin-right: 0;
+  margin-top: 0;
+
+}

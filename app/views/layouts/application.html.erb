@@ -13,19 +13,18 @@
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
+  <body style="background-image:url(http://i.imgur.com/IUVUIq4.jpg)">
 
     <nav class="top-bar">
       <ul class="title-area">
         <li class="name">
-          <h1><a href="/">Farm2Foodie</a></h1>
+          <h1><a href="/">Farm To Foodie</a></h1>
         </li>
       </ul>
 
       <section class="top-bar-section">
         <ul class="right">
           <%- if user_signed_in? -%>
-            <li><%= yield :nav %></li>
             <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
           <%- else -%>
             <li><%= link_to 'Sign Up', new_user_registration_path %></li>
