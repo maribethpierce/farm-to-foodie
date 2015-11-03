@@ -1,40 +1,40 @@
-User.create!(
+User.find_or_create_by!(
   name: "Maribeth",
   email: "maribeth@email.com",
   password: "password",
   farmer: true)
 
-User.create!(
+User.find_or_create_by!(
   name: "Al",
   email: "al@email.com",
   password: "password",
   farmer: true)
 
-User.create!(
+User.find_or_create_by!(
   name: "Katy",
   email: "katy@email.com",
   password: "password",
   farmer: true)
 
-User.create!(
+User.find_or_create_by!(
   name: "Remi",
   email: "remi@email.com",
   password: "password",
   foodie: true)
 
-User.create!(
+User.find_or_create_by!(
   name: "Rhunell",
   email: "rhunell@email.com",
   password: "password",
   foodie: true)
 
-User.create!(
+User.find_or_create_by!(
   name: "Marian",
   email: "marian@email.com",
   password: "password",
   foodie: true)
 
-User.create!(
+User.find_or_create_by!(
   name: "Don",
   email: "don@email.com",
   password: "password",
@@ -107,3 +107,38 @@ Market.find_or_create_by!(
   farm: Farm.third,
   day_of_week: "Thursday",
   location: "at your house")
+
+Product.find_or_create_by!(
+  farm: Farm.second,
+  item: "barley",
+  quantity: "bushel",
+  price: 3.75,
+  expiration: Date.new(2009,9,14,8))
+
+Product.find_or_create_by!(
+  farm: Farm.third,
+  item: "malt",
+  quantity: "bushel",
+  price: 4.25,
+  expiration: Date.new(2009,9,14,8))
+
+Product.find_or_create_by!(
+  farm: Farm.fourth,
+  item: "hops",
+  quantity: "bushel",
+  price: 5.37,
+  expiration: Date.new(2009,9,14,8))
+
+Product.find_or_create_by!(
+  farm: Farm.first,
+  item: "bottles",
+  quantity: "case",
+  price: 1.24,
+  expiration: Date.new(2009,9,14,8))
+
+Product.find_or_create_by!(
+  farm: Farm.last,
+  item: "bottle caps",
+  quantity: "bushel",
+  price: 17.54,
+  expiration: Date.new(2009,9,14,8))
