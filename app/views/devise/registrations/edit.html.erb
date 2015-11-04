@@ -1,4 +1,8 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="left-sideshow small-1 medium-2 large-3 centered columns">
+  <h1> </h1>
+</div>
+<div class="registration-form small-10 medium-8 large-6 centered columns">
+<h2>Edit <%= resource_name.to_s.humanize %> information</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -23,17 +27,30 @@
   </div>
 
   <div class="field">
+    <%= f.check_box :farmer? %>
+    <%= f.label :farmer, "Check here if you're a farmer" %>
+  </div>
+
+  <div class="field">
+    <%= f.check_box :foodie? %>
+    <%= f.label :foodie, "Check here if you're a foodie" %>
+  </div>
+
+  <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update", class: "farm-crud-buttons button expand round medium" %>
   </div>
 <% end %>
+<h1>...</h1>
+<h3>Delete my account</h3>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), class: "farm-crud-buttons button expand round medium", data: { confirm: "Are you sure?" }, method: :delete %></p>
 <%= link_to "Back", :back %>
+</div>
+<div class="left-sideshow small-1 medium-2 large-3 centered columns">
+  <h1> </h1>
+</div>
