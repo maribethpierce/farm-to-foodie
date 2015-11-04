@@ -1,24 +1,31 @@
 <div class="farm-info">
-    <div class="farm-title small-5">
-      <h1><%= @farm.name %></h1>
-    </div>
-    <div class="farm-details small-11">
-      <p>
-        <%= @farm.email %><br>
-        <%= @farm.address %><br>
-        <%= @farm.city %>,
-        <%= @farm.state %>
-        <%= @farm.zip %>
-      </p>
-    </div>
+  <div class="farm-title small-5">
+    <h1><%= @farm.name %></h1>
+  </div>
+  <div class="farm-details small-11">
+    <p>
+      <%= @farm.email %><br>
+      <%= @farm.address %><br>
+      <%= @farm.city %>,
+      <%= @farm.state %>
+      <%= @farm.zip %>
+    </p>
+  </div>
 </div>
-<div class="left-sideshow small-10 medium-6 large-6 centered columns">
+<div class="left-sideshow-info small-6 medium-6 large-6 centered columns">
   <p>
-    Here is what we currently have available:
+    Market details:
+    <% @farm.markets.each do |market| %><br>
+    When?    <%= market.day_of_week %>s<br>
+    Where?    <%= market.location %>
+    <% end %>
+  </p>
+  <p>
+    We're loaded down with:<br>
     <%= @farm.products.first.item %>
   </p>
 </div>
-<div id="farm-map" class="farm-info small-10 medium-6 large-5 centered columns"
+<div id="farm-map" class="farm-info small-11 medium-11 large-5 centered columns"
   data-farm=<%= @farm.name %>
   data-lat=<%= @farm.latitude %>
   data-lng=<%= @farm.longitude %> >
