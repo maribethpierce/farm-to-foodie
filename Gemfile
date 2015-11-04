@@ -54,3 +54,4 @@ gem 'devise'
 gem 'geocoder'
 gem 'foundation-rails'
 gem 'gon'
+gem 'puma', group: [:production]
