@@ -12,9 +12,9 @@ function initializeFarmMap(location) {
   var mapProp = {
     center: location,
     zoom: 10,
-    mapTypeId:google.maps.MapTypeId.HYBRID,
-    mapTypeControl: false,
-    streetViewControl: false
+    // mapTypeId:google.maps.MapTypeId.HYBRID,
+    // mapTypeControl: false,
+    streetViewControl: true
   };
 
   var map = new google.maps.Map(document.getElementById('farm-map'), mapProp);
