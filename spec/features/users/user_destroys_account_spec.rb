@@ -19,10 +19,10 @@ feature 'user deletes account', %{
     fill_in 'Password', with: @user.password
     click_button 'Log in'
 
-    click_link "#{@user.name}"
+    click_link "Update my Info"
   end
 
-  scenario 'user can delete account from show page' do
+  scenario 'user can delete account' do
     find_button('Delete Account')
   end
 

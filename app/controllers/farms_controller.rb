@@ -40,16 +40,22 @@ class FarmsController < ApplicationController
 
   def edit
     @farm = Farm.find(params[:id])
+    @user = current_user
   end
 
   def update
     @farm = Farm.find(params[:id])
+    @user = current_user
+    if @farm.user != current_user
+      flash[:notice] = "You don't have permission to edit this farm!"
+      redirect_to root_path
+    end
     if @farm.update(farm_params)
       flash[:notice] = "Farm updated!"
-      redirect_to root_path
+      redirect_to farm_path(@farm)
     else
       flash[:errors] = @farm.errors.full_messages.join('. ')
-      redirect_to root_path
+      redirect_to farm_path(@farm)
     end
   end
 

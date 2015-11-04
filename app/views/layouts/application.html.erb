@@ -25,6 +25,15 @@
       <section class="top-bar-section">
         <ul class="right">
           <%- if user_signed_in? -%>
+            <% if @user.farmer? %>
+              <% if @user.farm.nil? %>
+                <li><%= link_to 'List My Farm', new_user_farm_path(@user) %></li>
+              <% else %>
+                <li><%= link_to "My Farm", user_farm_path(@user.id, @user.farm) %></li>
+              <% end %>
+          <% end %>
+
+            <li><%= link_to 'Update my Info', edit_user_registration_path %></li>
             <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
           <%- else -%>
             <li><%= link_to 'Sign Up', new_user_registration_path %></li>

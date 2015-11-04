@@ -23,5 +23,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :name
     devise_parameter_sanitizer.for(:account_update) << :farmer
     devise_parameter_sanitizer.for(:sign_up) << :farmer
+    devise_parameter_sanitizer.for(:account_update) << :foodie
+    devise_parameter_sanitizer.for(:sign_up) << :foodie
   end
 end

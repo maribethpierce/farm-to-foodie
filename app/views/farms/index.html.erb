@@ -1,14 +1,8 @@
-<% content_for :nav do %>
-  <% if user_signed_in? %>
-    <% if @user.farmer? %>
-      <% if @user.farm.nil? %>
-        <%= link_to "List My Farm", new_user_farm_path(@user) %>
-      <% else %>
-        <%= link_to "My Farm", user_farm_path(@user.id, @user.farm) %>
-      <% end %>
-    <% end %>
-  <% end %>
-<% end %>
+
+<div class="left-sideshow small-1 medium-2 large-3 centered columns">
+  <h1> </h1>
+</div>
+<div class="registration-form small-10 medium-8 large-6 centered columns">
 <h1>
 Farm to Foodie
 </h1>
@@ -17,9 +11,13 @@ Farm to Foodie
 </p>
 <h4>Farms</h4>
 <div class="farm-links">
-  <% @farms.each do |farm| %>
-    <div class="farm-links">
-        <%= link_to farm.name, farm_path(farm) %><br>
+  <% @farms.shuffle.each do |farm| %>
+    <div class="farm-links farm-crud-buttons button  round medium">
+        <%= link_to "#{farm.name}", farm_path(farm) %><br>
     </div>
   <% end %>
+</div>
+</div>
+<div class="left-sideshow small-1 medium-2 large-3 centered columns">
+  <h1> </h1>
 </div>
