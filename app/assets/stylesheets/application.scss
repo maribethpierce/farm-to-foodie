@@ -45,12 +45,24 @@
 .registration-form {
   background-color: rgba(149, 67, 31, 0.70);
   color: silver;
-}
-.registration-form h2 {
-  color: silver;
   text-align: center;
 }
-.farm-crud-buttons {
+.registration-form h1 {
   color: silver;
-  background-color: jet;
+  text-transform: capitalize;
+}
+.registration-form h3 {
+  color: silver;
+  text-transform: capitalize;
+}
+.registration-form h5 {
+  color: silver;
+}
+.registration-form #farms-index .button {
+  color: silver;
+  background-color: rgba(47, 21, 8, 0.83);
+}
+#new_user .registration-form .button {
+  color: silver;
+  text-transform: lowercase;
 }
