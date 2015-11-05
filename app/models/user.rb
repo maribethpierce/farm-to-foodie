@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
     foodie
   end
 
+  def admin?
+    admin
+  end
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   # Include default devise modules. Others available are:
