@@ -19,9 +19,11 @@ class FarmsController < ApplicationController
 
   def new
     @farm = Farm.new
+    @user = current_user
   end
 
   def create
+    @user = current_user
     if current_user.farmer? == true
       @farm = Farm.new(farm_params)
       @farm.user << current_user
