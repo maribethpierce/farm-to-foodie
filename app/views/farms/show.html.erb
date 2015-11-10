@@ -27,7 +27,9 @@
     <% unless @farm.products.empty? %>
       <p>
         We're loaded down with:<br>
-        <%= @farm.products.first.item %>
+        <% @farm.products.each do |product| %>
+          <%= product.item %><br>
+        <% end %>
       </p>
     <% end %>
   </div>
