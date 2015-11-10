@@ -1,0 +1,32 @@
+<div class="left-sideshow small-1 medium-2 large-3 centered columns">
+  <h1> </h1>
+</div>
+<div class="registration-form small-10 medium-8 large-6 centered columns">
+  <h3>What's in season?</h3>
+
+  <%= form_for [@farm, @product], url: farm_products_path(@farm) do |f| %>
+    <div class="field column small-12">
+      <% f.label :item, class: "text-input-label" %><br>
+      <%= f.text_field :item, class: "text-input-field", placeholder: "Product Name", autofocus: true %>
+    </div>
+    <div class="field column small-12">
+      <% f.label :quantity, class: "text-input-label" %><br>
+      <%= f.text_field :quantity, class: "text-input-field", placeholder: "quantity" %>
+    </div>
+    <div class="field column small-12">
+      <% f.label :price, class: "text-input-label" %><br>
+      <%= f.text_field :price, class: "text-input-field", placeholder: "price (like this: 12.75)"%>
+    </div>
+    <div class="field column small-12">
+      <% f.label :expiration, class: "text-input-label" %><br>
+      <%= f.text_field :expiration, class: "text-input-field", placeholder: "Expiration - This will be available until when? " %>
+    </div>
+    <br>
+    <div class="actions">
+      <%= f.submit "Add item", class: "registration-form button  round medium" %>
+    </div>
+  <% end %>
+</div>
+<div class="left-sideshow small-1 medium-2 large-3 centered columns">
+  <h1> </h1>
+</div>

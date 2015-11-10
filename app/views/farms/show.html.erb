@@ -27,9 +27,16 @@
     <% unless @farm.products.empty? %>
       <p>
         We're loaded down with:<br>
-        <%= @farm.products.first.item %>
+        <% @farm.products.each do |product| %>
+          <%= product.item %><br>
+        <% end %>
       </p>
     <% end %>
+  <% if current_user == @user %>
+    <div id="product-form">
+      <%= button_to "Add Produce", new_farm_product_path(@farm), class: "registration-form button round medium", method: :get %>
+    </div>
+  <% end %>
   </div>
 </div>
 <div id="farm-map" class="farm-info small-11 medium-11 large-5 centered columns"
@@ -41,5 +48,5 @@
   <h1></h1>
 </div>
 <% if current_user == @user %>
-  <%= button_to "Update Information", edit_user_farm_path(@user, @farm), class: 'farm-buttons button expand round meduim', method: :get %>
+  <%= button_to "Update Information", edit_user_farm_path(@user, @farm), class: 'registration-form button round meduim', method: :get %>
 <% end %>

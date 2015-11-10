@@ -9,12 +9,9 @@ class FarmsController < ApplicationController
   def show
     @farm = Farm.find(params[:id])
     @market = @farm.markets
-    @user = @farm.user
+    @user = current_user
     @lat = @farm.latitude
     @lng = @farm.longitude
-    # gon.lat = @farm.latitude
-    # gon.lat = @farm.longitude
-    # @produce = @farm.products
   end
 
   def new
@@ -86,9 +83,5 @@ class FarmsController < ApplicationController
     :longitude
     ).merge(user_id: current_user.id)
   end
-
-  # def user_params
-  #   params.require(:group).permit(:user_id)
-  # end
 
 end
