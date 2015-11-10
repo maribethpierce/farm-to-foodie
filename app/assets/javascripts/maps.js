@@ -25,7 +25,11 @@ function initializeFarmMap(location) {
     title: name
   });
 
-  marker.setMap(map);
+  var geocoding  = new google.maps.Geocoder();
+    $("#submit_button_geocoding").click(function(){
+      codeAddress(geocoding);
+      marker.setMap(map);
+    });
 
   $(window).resize(function() {
     google.maps.event.trigger(map, "resize");
