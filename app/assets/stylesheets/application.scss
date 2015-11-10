@@ -16,13 +16,13 @@
 
  */
 .farm-info .farm-title {
-  text-align: left;
   margin-left: 10px;
   text-outline: white;
 }
-.farm-info .farm-title h1 {
+.farm-info .farm-details h1 {
   margin: 0;
   color: silver;
+  text-align: left;
 }
 .farm-info .farm-details {
   text-align: right;
@@ -40,7 +40,8 @@
 .left-sideshow-info {
   background-color: rgba(149, 67, 31, 0.70);
   color: silver;
-  margin-right: 7em;
+  margin: 4em;
+  border-radius: 25em;
 }
 .registration-form {
   background-color: rgba(149, 67, 31, 0.70);
@@ -67,6 +68,13 @@
   color: silver;
   text-transform: lowercase;
 }
-.left-sideshow-info .market-info #product-form h3 {
+.left-sideshow-info .market-info  {
   color: sliver;
+}
+.market-info p {
+  padding: 0.5em;
+  text-align: center;
+}
+.market-info h5 {
+  color: silver;
 }
