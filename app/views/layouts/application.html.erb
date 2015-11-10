@@ -29,7 +29,7 @@
               <% if @user.farm.nil? %>
                 <li><%= link_to 'List My Farm', new_user_farm_path(@user) %></li>
               <% else %>
-                <li><%= link_to "My Farm", user_farm_path(@user.id, @user.farm) %></li>
+                <li><%= link_to "My Farm", user_farm_path(@user.id, @user.farm.id) %></li>
               <% end %>
           <% end %>
 
@@ -42,12 +42,13 @@
         </ul>
       </section>
     </nav>
-
-    <%- flash.each do |key, value| -%>
-      <div class="flash flash-<%= key %>">
-        <%= value %>
-      </div>
-    <%- end -%>
+    <div class="registration-form">
+      <%- flash.each do |key, value| -%>
+        <div class="flash flash-<%= key %>">
+          <h3><%= value %></h3>
+        </div>
+      <%- end -%>
+    </div>
 
     <%= yield %>
 
