@@ -26,7 +26,9 @@ class FarmsController < ApplicationController
     @user = current_user
     if current_user.farmer? == true
       @farm = Farm.new(farm_params)
-      @farm.user << current_user
+      @farm.latitude = @farm.geocode.first
+      @farm.longitude = @farm.geocode.last
+      # @farm.users << current_user
       if @farm.save
         flash[:notice] = "Farm added!"
         redirect_to root_path
@@ -79,8 +81,10 @@ class FarmsController < ApplicationController
     :address,
     :city,
     :state,
-    :zip
-    ).merge(user: current_user)
+    :zip,
+    :latitude,
+    :longitude
+    ).merge(user_id: current_user.id)
   end
 
   # def user_params

@@ -19,8 +19,8 @@ class Farm < ActiveRecord::Base
   validates :latitude, numericality: true
 
   # attr_accessible :address, :city, :state, :zip, :latitude, :longitude
+  after_validation :geocode #, :if => :address_changed?
   geocoded_by :full_address
-  after_validation :geocode, :if => :address_changed?
   def full_address
     "#{address}, #{city}, #{state}, #{zip}"
   end
