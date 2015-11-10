@@ -12,29 +12,29 @@
     </div>
     <div class="field column small-12">
       <% f.label :email, class: "text-input-label" %><br>
-      <%= f.email_field :email, class: "text-input-field", placeholder: "grub@email.com" %>
+      <%= f.email_field :email, class: "text-input-field", placeholder: "contact email" %>
     </div>
     <div class="field column small-12">
       <% f.label :phone, class: "text-input-label" %><br>
-      <%= f.text_field :phone, class: "text-input-field", placeholder: "111-222-3333"%>
+      <%= f.text_field :phone, class: "text-input-field", placeholder: "phone like this - 1112223333"%>
     </div>
     <div class="field column small-12">
       <% f.label :address, class: "text-input-label" %><br>
-      <%= f.text_field :address, class: "text-input-field", placeholder: "123 Farm Rd." %>
+      <%= f.text_field :address, class: "text-input-field", placeholder: "Address" %>
     </div>
     <div class="field column small-12">
       <% f.label :city, "City", class: "text-input-label" %><br>
-      <%= f.text_field :city, class: "text-input-field", placeholder: "Ourtown" %>
+      <%= f.text_field :city, class: "text-input-field", placeholder: "City" %>
     </div>
     <br>
     <div class="field column small-12">
       <% f.label :state, "State", class: "text-input-label" %><br>
-      <%= f.text_field :state, class: "text-input-field", placeholder: "ie - VA" %>
+      <%= f.text_field :state, class: "text-input-field", placeholder: "State (like this - NC)" %>
     </div>
     <br>
     <div class="field column small-12">
       <% f.label :zip, "Zip Code", class: "text-input-label" %><br>
-      <%= f.text_field :zip, class: "text-input-field", placeholder: "02139" %>
+      <%= f.text_field :zip, class: "text-input-field", placeholder: "zip code" %>
     </div>
     <br>
   <div class="actions">
@@ -43,7 +43,6 @@
   <% end %>
   <%= button_to "Back to #{@farm.name}!", farm_path(@farm), class: 'registration-form button  round medium', method: :get %>
   <%= button_to "Back to home", farms_path, class: "registration-form button  round medium", method: :get %>
-
   </div>
 </div>
 <div class="left-sideshow small-1 medium-2 large-3 centered columns">

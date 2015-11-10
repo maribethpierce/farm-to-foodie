@@ -1,8 +1,22 @@
-<div class="farm-info">
-  <div class="farm-title small-5">
+<div class="farm-info small-12 centered columns">
+  <div class="farm-details small-5 columns">
     <h1><%= @farm.name %></h1>
+    <% if current_user == @farm.user %>
+    <div class="small-3 centered columns">
+      <%= button_to "Add Produce", new_farm_product_path(@farm), class: "registration-form button round tiny", method: :get %>
+    </div>
+    <div class="small-3 centered columns">
+      <%= button_to "Add Market", new_farm_market_path(@farm), class: "registration-form button round tiny", method: :get %>
+    </div>
+    <div class="small-3 centered columns">
+      <%= button_to "Update Information", edit_user_farm_path(@user, @farm), class: 'registration-form button round tiny', method: :get %>
+    </div>
+    <div class="small-3 centered columns">
+      <%= button_to "Delete Farm", edit_farm_path(@farm), class: 'registration-form button round tiny', method: :get %>
+    </div>
+    <% end %>
   </div>
-  <div class="farm-details small-11">
+  <div class="farm-details small-5 columns">
     <p>
       <%= @farm.email %><br>
       <%= @farm.address %><br>
@@ -16,9 +30,9 @@
   <div class="market-info small-6 centered columns">
     <% unless @farm.markets.empty? %>
       <p>
-        Market details:
+        Market details:<br>
         <% @farm.markets.each do |market| %><br>
-          <%= market.day_of_week %>s <%= market.location %>
+          <%= market.day_of_week %>s <br><%= market.location %>
           <% end %>
       </p>
     <% end %>
@@ -26,17 +40,12 @@
   <div class="market-info small-6 centered columns">
     <% unless @farm.products.empty? %>
       <p>
-        We're loaded down with:<br>
+        <h5>We're loaded down with:</h5><br>
         <% @farm.products.each do |product| %>
           <%= product.item %><br>
         <% end %>
       </p>
     <% end %>
-  <% if current_user == @user %>
-    <div id="product-form">
-      <%= button_to "Add Produce", new_farm_product_path(@farm), class: "registration-form button round medium", method: :get %>
-    </div>
-  <% end %>
   </div>
 </div>
 <div id="farm-map" class="farm-info small-11 medium-11 large-5 centered columns"
@@ -47,6 +56,3 @@
 <div class="right-sideshow small-0 medium-1 large-1 centered columns">
   <h1></h1>
 </div>
-<% if current_user == @user %>
-  <%= button_to "Update Information", edit_user_farm_path(@user, @farm), class: 'registration-form button round meduim', method: :get %>
-<% end %>

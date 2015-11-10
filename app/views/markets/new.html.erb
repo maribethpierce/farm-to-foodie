@@ -1,0 +1,46 @@
+<div class="left-sideshow small-1 medium-2 large-3 centered columns">
+  <h1> </h1>
+</div>
+<div class="registration-form small-10 medium-8 large-6 centered columns">
+  <h3>Market Days:</h3>
+
+  <%= form_for [@farm, @market], url: farm_markets_path(@farm) do |f| %>
+    <div class="field column small-12">
+      <% f.label :day_of_week, class: "text-input-label" %><br>
+      <%= f.text_field :day_of_week, class: "text-input-field", placeholder: "Day of the week - like 'Monday' or 'Tuesday'", autofocus: true %>
+    </div>
+    <div class="field column small-12">
+      <% f.label :location, class: "text-input-label" %><br>
+      <%= f.text_field :location, class: "text-input-field", placeholder: "Location - like 'WJ Farmers' market' or 'Lowes parking lot'." %>
+    </div>
+    <br>
+    <div class="field column small-12">
+      <% f.label :address, class: "text-input-label" %><br>
+      <%= f.text_field :address, class: "text-input-field", placeholder: "Street Address (include if you want a map available)" %>
+    </div>
+    <div class="field column small-12">
+      <% f.label :city, "City", class: "text-input-label" %><br>
+      <%= f.text_field :city, class: "text-input-field", placeholder: "City (include if you want a map available)" %>
+    </div>
+    <br>
+    <div class="field column small-12">
+      <% f.label :state, "State", class: "text-input-label" %><br>
+      <%= f.text_field :state, class: "text-input-field", placeholder: "State (like this: VA) (include if you want a map available)" %>
+    </div>
+    <br>
+    <div class="field column small-12">
+      <% f.label :zip, "Zip Code", class: "text-input-label" %><br>
+      <%= f.text_field :zip, class: "text-input-field", placeholder: "zip code (include if you want a map available)" %>
+    </div>
+    <br>
+    <% f.hidden_field :latitude %>
+    <% f.hidden_field :longitude %>
+
+    <div class="actions">
+      <%= f.submit "Add Market", class: "registration-form button round medium" %>
+    </div>
+  <% end %>
+</div>
+<div class="left-sideshow small-1 medium-2 large-3 centered columns">
+  <h1> </h1>
+</div>
