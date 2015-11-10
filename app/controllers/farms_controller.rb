@@ -87,8 +87,4 @@ class FarmsController < ApplicationController
     ).merge(user_id: current_user.id)
   end
 
-  # def user_params
-  #   params.require(:group).permit(:user_id)
-  # end
-
 end

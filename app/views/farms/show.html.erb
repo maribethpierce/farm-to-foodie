@@ -41,5 +41,9 @@
   <h1></h1>
 </div>
 <% if current_user == @user %>
-  <%= button_to "Update Information", edit_user_farm_path(@user, @farm), class: 'farm-buttons button expand round meduim', method: :get %>
+  <div id="product-form", class="farm-update-form small-5 centered columns">
+    <h3>What are you selling?</h3>
+    <%= button_to "Add Produce", new_farm_product_path(@farm), class: "registration-form button round medium", method: :get %>
+  </div>
+  <%= button_to "Update Information", edit_user_farm_path(@user, @farm), class: 'registration-form button round meduim', method: :get %>
 <% end %>
