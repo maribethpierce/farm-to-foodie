@@ -6,7 +6,11 @@
       <%= button_to "Add Produce", new_farm_product_path(@farm), class: "registration-form button round tiny", method: :get %>
     </div>
     <div class="small-3 centered columns">
-      <%= button_to "Add Market", new_farm_market_path(@farm), class: "registration-form button round tiny", method: :get %>
+      <% if @farm.markets.empty? %>
+        <%= button_to "Add Market", new_farm_market_path(@farm), class: "registration-form button round tiny", method: :get %>
+      <% else %>
+        <%= button_to "My Markets", farm_markets_path(@farm), class: "registration-form button round tiny", method: :get %>
+      <% end %>
     </div>
     <div class="small-3 centered columns">
       <%= button_to "Update Information", edit_user_farm_path(@user, @farm), class: 'registration-form button round tiny', method: :get %>
@@ -27,8 +31,8 @@
     </p>
   </div>
 </div>
-<div class="left-sideshow-info small-5 medium-5 large-5 centered columns">
-  <div class="market-info small-5 centered columns">
+<div class="left-sideshow-info small-12 medium-9 large-5 centered columns">
+  <div class="market-info small-12 medium-6 centered columns">
     <% unless @farm.markets.empty? %>
       <h5><br>
         Market details:<br>
@@ -38,7 +42,7 @@
       </h5>
     <% end %>
   </div>
-  <div class="market-info small-5 centered columns">
+  <div class="market-info small-12 medium-6 centered columns">
     <% unless @farm.products.empty? %>
       <p>
         <h5>We're loaded down with:</h5><br>
@@ -49,10 +53,12 @@
     <% end %>
   </div>
 </div>
-<div id="farm-map" class="farm-info small-12 medium-11 large-5 centered columns"
-  data-farm=<%= @farm.name %>
-  data-lat=<%= @farm.latitude %>
-  data-lng=<%= @farm.longitude %> >
+<div class="map-container small-12 medium-5 large-4 centered columns">
+  <div id="farm-map" class="farm-info"
+    data-farm=<%= @farm.name %>
+    data-lat=<%= @farm.latitude %>
+    data-lng=<%= @farm.longitude %> >
+  </div>
 </div>
 <div class="right-sideshow small-0 medium-1 large-1 centered columns">
   <h1></h1>
