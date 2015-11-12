@@ -2,8 +2,9 @@ class MarketsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @farm = Farm.find(params[:id])
-    @markets = @farm.markets
+    @farm = Farm.find(params[:farm_id])
+    @markets = @farm.markets.all
+    @user = current_user
   end
 
   def show
