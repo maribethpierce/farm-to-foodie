@@ -17,6 +17,7 @@
     <% end %>
   </div>
   <div class="farm-details small-5 columns">
+    <h5>Farmer(s): <%= @farm.user.name %>
     <p>
       <%= @farm.email %><br>
       <%= @farm.address %><br>
@@ -26,18 +27,18 @@
     </p>
   </div>
 </div>
-<div class="left-sideshow-info small-6 medium-6 large-6 centered columns">
-  <div class="market-info small-6 centered columns">
+<div class="left-sideshow-info small-5 medium-5 large-5 centered columns">
+  <div class="market-info small-5 centered columns">
     <% unless @farm.markets.empty? %>
-      <p>
+      <h5><br>
         Market details:<br>
         <% @farm.markets.each do |market| %><br>
-          <%= market.day_of_week %>s <br><%= market.location %>
+          <%= market.day_of_week %>s at:<br><%= market.location %>
           <% end %>
-      </p>
+      </h5>
     <% end %>
   </div>
-  <div class="market-info small-6 centered columns">
+  <div class="market-info small-5 centered columns">
     <% unless @farm.products.empty? %>
       <p>
         <h5>We're loaded down with:</h5><br>
@@ -48,7 +49,7 @@
     <% end %>
   </div>
 </div>
-<div id="farm-map" class="farm-info small-11 medium-11 large-5 centered columns"
+<div id="farm-map" class="farm-info small-12 medium-11 large-5 centered columns"
   data-farm=<%= @farm.name %>
   data-lat=<%= @farm.latitude %>
   data-lng=<%= @farm.longitude %> >
