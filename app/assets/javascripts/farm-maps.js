@@ -11,7 +11,7 @@ if ($("#farm-map").length > 0) {
 function initializeFarmMap(location) {
   var mapProp = {
     center: location,
-    zoom: 10,
+    zoom: 11,
     // mapTypeId:google.maps.MapTypeId.HYBRID,
     // mapTypeControl: false,
     streetViewControl: true
