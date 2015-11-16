@@ -5,13 +5,21 @@
 </div>
 <div class="left-sideshow-info small-9 medium-6 large-3 centered columns">
   <div class="market-info small-12  centered columns">
-    <p>Where is this mythical <%= @market.location %> of which you speak?<br> <strong>Check the map, yo!</strong><br>And remember, they will be there on <%=@market.day_of_week%>.</p>
+    <p>Where is this mythical<br>"<%= @market.location %>"<br> of which you speak?<br>
+    <% if @market.full_address.length > 25 %>
+      <strong>Check the map, yo!</strong>
+    <% else %>
+      Shoot us an email (<%= @farm.email %>) and we'll be happy to help you find us.
+    <% end %>
+    <br>And remember, we will be there on <%=@market.day_of_week%>.</p>
   </div>
 </div>
-<div class="map-container small-12 medium-5 large-4 centered columns">
-  <div id="market-map" class="market-info"
-    data-market=<%= @market.location %>
-    data-lat=<%= @market.latitude %>
-    data-lng=<%= @market.longitude %> >
+<% if @market.full_address.length > 25 %>
+  <div class="map-container small-12 medium-5 large-4 centered columns">
+    <div id="market-map" class="market-info"
+      data-market=<%= @market.location %>
+      data-lat=<%= @market.latitude %>
+      data-lng=<%= @market.longitude %> >
+    </div>
   </div>
-</div>
+<% end %>
