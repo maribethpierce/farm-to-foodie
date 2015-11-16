@@ -34,10 +34,9 @@
 <div class="left-sideshow-info small-12 medium-9 large-5 centered columns">
   <div class="market-info small-12 medium-6 centered columns">
     <% unless @farm.markets.empty? %>
-      <h5><br>
-        Market details:<br>
+      <h5><br>Market details:<br>
         <% @farm.markets.each do |market| %><br>
-          <%= market.day_of_week %>s at:<br><%= market.location %>
+          <%= link_to "#{market.day_of_week}s", farm_market_path(@farm, market) %> at:<br><%= market.location %>
           <% end %>
       </h5>
     <% end %>

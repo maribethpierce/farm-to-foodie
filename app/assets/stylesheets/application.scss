@@ -21,7 +21,7 @@
 }
 .farm-info .farm-details h1 {
   margin: 0;
-  color: silver;
+  color: rgb(247, 203, 14);
   text-align: left;
 }
 .farm-info .farm-details {
@@ -29,11 +29,11 @@
   margin-right: 0;
 }
 .farm-info .farm-details h5 {
-  color: silver;
+  color: rgb(247, 203, 14);
 }
 .farm-info .farm-details p {
   padding-bottom: 1em;
-  color: silver;
+  color: rgb(247, 203, 14);
 }
 .farm-info {
   background-color: rgba(149, 67, 31, 0.70);
@@ -42,42 +42,47 @@
 }
 .left-sideshow-info {
   background-color: rgba(149, 67, 31, 0.70);
-  color: silver;
+  color: rgb(247, 203, 14);
   margin: 4em;
   border-radius: 10px;
 }
 .registration-form {
   background-color: rgba(149, 67, 31, 0.70);
-  color: silver;
+  color: rgb(247, 203, 14);
   text-align: center;
 }
 .registration-form h1 {
-  color: silver;
+  color: rgb(247, 203, 14);
   text-transform: capitalize;
 }
 .registration-form h3 {
-  color: silver;
+  color: rgb(247, 203, 14);
   text-transform: capitalize;
   margin: 0em;
 }
 .registration-form h5 {
-  color: silver;
+  color: rgb(247, 203, 14);
 }
 .registration-form #farms-index .button {
-  color: silver;
+  color: rgb(247, 203, 14);
   background-color: rgba(47, 21, 8, 0.83);
 }
 #new_user .registration-form .button {
-  color: silver;
+  color: rgb(247, 203, 14);
   text-transform: lowercase;
 }
 .left-sideshow-info .market-info  {
-  color: sliver;
+  color: rgb(247, 203, 14);
 }
+.left-sideshow-info .market-info h5 link {
+  color: rgb(247, 203, 14);
+  text-transform: lowercase;
+}
+
 .market-info p {
   padding: 0.5em;
   text-align: center;
 }
 .market-info h5 {
-  color: silver;
+  color: rgb(247, 203, 14);
 }
