@@ -17,16 +17,35 @@
     </div>
     <% end %>
   </div>
-
-  <div class="farm-details small-5 columns">
-
-    <% @markets.each do |market| %>
-      <p><strong><%= market.day_of_week %>s<strong><br>
-      <% if market.full_address.length > 7 %>
-        <%= link_to "#{market.location}", farm_market_path(@farm, market)  %></p>
-      <% else %>
-        <%= market.location %>
+</div>
+  <div class="left-sideshow-info small-9 medium-6 large-3 centered columns">
+    <div class="market-info small-12  centered columns">
+      <% @markets.each do |market| %>
+        <strong>Double check your market details:</strong>
+        <strong>Day:</strong> <%= market.day_of_week %><br>
+        <strong>Location:</strong> <%= market.location %><br>
+        <strong>Map address:</strong><br><%= market.address %><br>
+        <%= market.city %>, <%= market.state %> <%= market.zip %><br>
+        <br>
+        <div class="">
+          <%= button_to "Edit Market", edit_farm_market_path(@farm, market), class: 'registration-form button round tiny', method: :get %>
+        </div>
+        <div class="">
+          <%= button_to "Delete Market", farm_market_path(@farm, market), class: 'registration-form button round tiny', method: :get %>
+        </div>
       <% end %>
-    <% end %>
+    </div>
   </div>
+</div>
+
+<div class="farm-details small-5 columns">
+
+  <% @markets.each do |market| %>
+    <p><strong><%= market.day_of_week %>s<strong><br>
+    <% if market.full_address.length > 25 %>
+      <%= link_to "#{market.location}", farm_market_path(@farm, market)  %></p>
+    <% else %>
+      <%= market.location %>
+    <% end %>
+  <% end %>
 </div>
