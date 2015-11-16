@@ -9,10 +9,10 @@ class MarketsController < ApplicationController
 
   def show
     @farm = Farm.find(params[:id])
-    @markets = @farm.markets
+    @market = Market.find(params[:id])
     @user = current_user
-    @lat = @farm.latitude
-    @lng = @farm.longitude
+    @lat = @market.latitude
+    @lng = @market.longitude
   end
 
   def new

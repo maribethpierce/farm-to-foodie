@@ -1,3 +1,32 @@
-<% @markets.each do |market| %>
-  <%= market.day_of_week %>
-<% end %>
+<div class="farm-info small-12 centered columns">
+  <div class="farm-details small-5 columns">
+    <h1><%= @farm.name %></h1>
+    <% if current_user == @farm.user %>
+    <div class="small-3 centered columns">
+      <% if @farm.markets.empty? %>
+        <%= button_to "Add Market", new_farm_market_path(@farm), class: "registration-form button round tiny", method: :get %>
+      <% else %>
+        <%= button_to "Edit My Markets", farm_markets_path(@farm), class: "registration-form button round tiny", method: :get %>
+      <% end %>
+    </div>
+    <div class="small-3 centered columns">
+      <%= button_to "Update Information", edit_user_farm_path(@user, @farm), class: 'registration-form button round tiny', method: :get %>
+    </div>
+    <div class="small-3 centered columns">
+      <%= button_to "Delete Farm", edit_farm_path(@farm), class: 'registration-form button round tiny', method: :get %>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="farm-details small-5 columns">
+
+    <% @markets.each do |market| %>
+      <p><strong><%= market.day_of_week %>s<strong><br>
+      <% if market.full_address.length > 7 %>
+        <%= link_to "#{market.location}", farm_market_path(@farm, market)  %></p>
+      <% else %>
+        <%= market.location %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
