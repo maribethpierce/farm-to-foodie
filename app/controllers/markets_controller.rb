@@ -26,8 +26,8 @@ class MarketsController < ApplicationController
     if @user.farmer? == true
       @farm = @user.farm
       @market = Market.new(market_params)
-        @market.latitude = @market.geocode.first
-        @market.longitude = @market.geocode.last
+      @market.latitude = @market.geocode.first
+      @market.longitude = @market.geocode.last
       if @market.save
         flash[:notice] = "Market added!"
         redirect_to user_farm_path(@user, @farm)
@@ -39,14 +39,14 @@ class MarketsController < ApplicationController
   end
 
   def edit
-    @farm = Farm.find(params[:id])
+    @farm = Farm.find(params[:farm_id])
     @user = current_user
     @markets = @farm.markets
     @market = Market.find(params[:id])
   end
 
   def update
-    @farm = Farm.find(params[:id])
+    @farm = Farm.find(params[:farm_id])
     @user = current_user
     @markets = @farm.markets
     @market = Market.find(params[:id])
@@ -58,7 +58,7 @@ class MarketsController < ApplicationController
         redirect_to farms_path(@farm)
       else
         flash[:errors] = @market.errors.full_messages.join(', ')
-        render :new
+        render :edit
       end
     else
       flash[:notice] = "You don't have permission to edit this!"
