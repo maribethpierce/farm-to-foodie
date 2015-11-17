@@ -26,13 +26,18 @@ class MarketsController < ApplicationController
     if @user.farmer? == true
       @farm = @user.farm
       @market = Market.new(market_params)
-      @market.latitude = @market.geocode.first
-      @market.longitude = @market.geocode.last
-      if @market.save
-        flash[:notice] = "Market added!"
-        redirect_to user_farm_path(@user, @farm)
+      if @market.location.length >= 4
+        @market.latitude = @market.geocode.first
+        @market.longitude = @market.geocode.last
+        if @market.save
+          flash[:notice] = "Market added!"
+          redirect_to user_farm_path(@user, @farm)
+        else
+          flash[:errors] = @market.errors.full_messages.join(', ')
+          render :new
+        end
       else
-        flash[:errors] = @market.errors.full_messages.join(', ')
+        flash[:alert] = "Try again. Please fill in all blanks."
         render :new
       end
     end
@@ -55,7 +60,7 @@ class MarketsController < ApplicationController
         @market.latitude = @market.geocode.first
         @market.longitude = @market.geocode.last
         flash[:notice] = "Successfully updated"
-        redirect_to farms_path(@farm)
+        redirect_to farm_path(@farm)
       else
         flash[:errors] = @market.errors.full_messages.join(', ')
         render :edit
