@@ -33,6 +33,8 @@
       <%= f.text_field :zip, class: "text-input-field", placeholder: "zip code" %>
     </div>
     <br>
+    <% f.hidden_field :latitude %>
+    <% f.hidden_field :longitude %>
   <div class="actions">
     <%= f.submit "Update your Market!", class: "registration-form button  round medium" %>
   </div>
