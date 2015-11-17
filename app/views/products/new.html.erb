@@ -10,12 +10,12 @@
       <%= f.text_field :item, class: "text-input-field", placeholder: "Product Name", autofocus: true %>
     </div>
     <div class="field column small-12">
-      <% f.label :quantity, class: "text-input-label" %><br>
-      <%= f.text_field :quantity, class: "text-input-field", placeholder: "quantity" %>
-    </div>
-    <div class="field column small-12">
       <% f.label :price, class: "text-input-label" %><br>
       <%= f.text_field :price, class: "text-input-field", placeholder: "price (like this: 12.75)"%>
+    </div>
+    <div class="field column small-12">
+      <% f.label :quantity, class: "text-input-label" %><br>
+      <%= f.text_field :quantity, class: "text-input-field", placeholder: "listed price is per how much of this product?" %>
     </div>
     <div class="field column small-12">
       <% f.label :expiration, class: "text-input-label" %><br>

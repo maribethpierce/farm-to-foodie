@@ -1,17 +1,22 @@
 <div class="farm-info small-12 centered columns">
   <div class="farm-details small-5 columns">
-    <h1><%= @farm.name %></h1>
+    <h1><%= link_to "#{@farm.name}", farm_path(@farm) %><br> </h1>
+    <h5><strong>Market Day:
+    <%= @market.day_of_week %></strong></h5>
+  </div>
+  <div class="farm-details small-5 columns">
+    <h1>Market Information<br> </h1><br>
   </div>
 </div>
 <div class="left-sideshow-info small-9 medium-6 large-3 centered columns">
   <div class="market-info small-12  centered columns">
-    <p>Where is this mythical<br>"<%= @market.location %>"<br> of which you speak?<br>
+    <h5>Where is this mythical<br><strong>"<%= @market.location %>"</strong><br> of which you speak?<br><br>
     <% if @market.full_address.length > 25 %>
-      <strong>Check the map, yo!</strong>
+      <strong>Check the map, yo! <h1><span>&#8594;</span> <span>&#8594;</span> <span>&#8594;</span></h1></strong>
     <% else %>
-      Shoot us an email (<%= @farm.email %>) and we'll be happy to help you find us.
+      Shoot us an email<br><strong> (<%= @farm.email %>)</strong><br> and we'll be happy to help you find us.
     <% end %>
-    <br>And remember, we will be there on <%=@market.day_of_week%>.</p>
+    <br><br>And remember, we will be there on <%=@market.day_of_week%>.</h5>
   </div>
 </div>
 <% if @market.full_address.length > 25 %>

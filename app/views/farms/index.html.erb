@@ -7,15 +7,15 @@
   Farm to Foodie
   </h1>
   <h5>
-    <strong>Welcome!</strong><br> Thanks for stopping by. Check out these farms, find for farms near you, search for ingredients for this weekend's dinner... Most of all, support your local farmers.<br>Local Food, thousands of miles fresher!
+    <strong>Welcome!</strong><br> Thanks for stopping by. Check out these farms, find for farms near you, search for ingredients for this weekend's dinner... Most of all, support your local farmers.<br><strong>Local Food, thousands of miles fresher!</strong>
   </h5>
-  <strong><h3>Farms</h3></strong>
-  <div id="farms-index" >
-    <% @farms.shuffle.each do |farm| %>
-      <div  class="button round tiny">
-          <%= link_to "#{farm.name}", farm_path(farm) %><br>
-      </div>
-    <% end %>
+  <strong><h3>Farms:</h3></strong>
+    <div class="farm-buttons" >
+      <% @farms.shuffle.each do |farm| %>
+          <div class="farm-details small-3 centered columns">
+            <%= link_to "#{farm.name}", farm_path(farm), class: "registration-form button round tiny" %><br>
+        </div>
+      <% end %>
   </div>
 </div>
 <div class="left-sideshow small-1 medium-2 large-3 centered columns">
