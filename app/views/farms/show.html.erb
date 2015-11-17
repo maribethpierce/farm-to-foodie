@@ -2,20 +2,20 @@
   <div class="farm-details small-5 columns">
     <h1><%= @farm.name %></h1>
     <% if current_user == @farm.user %>
-    <div class="small-3 centered columns">
+    <div class="farm-buttons small-3 centered columns">
       <%= button_to "Add Produce", new_farm_product_path(@farm), class: "registration-form button round tiny", method: :get %>
     </div>
-    <div class="small-3 centered columns">
+    <div class="farm-buttons small-3 centered columns">
       <% if @farm.markets.empty? %>
         <%= button_to "Add Market", new_farm_market_path(@farm), class: "registration-form button round tiny", method: :get %>
       <% else %>
         <%= button_to "My Markets", farm_markets_path(@farm), class: "registration-form button round tiny", method: :get %>
       <% end %>
     </div>
-    <div class="small-3 centered columns">
+    <div class="farm-buttons small-3 centered columns">
       <%= button_to "Update Information", edit_user_farm_path(@user, @farm), class: 'registration-form button round tiny', method: :get %>
     </div>
-    <div class="small-3 centered columns">
+    <div class="farm-buttons small-3 centered columns">
       <%= button_to "Delete Farm", edit_farm_path(@farm), class: 'registration-form button round tiny', method: :get %>
     </div>
     <% end %>
@@ -36,17 +36,18 @@
     <% unless @farm.markets.empty? %>
       <h5><br>Market details:<br>
         <% @farm.markets.each do |market| %><br>
-          <%= link_to "#{market.day_of_week}s", farm_market_path(@farm, market) %> at:<br><%= market.location %>
+          <%= link_to "#{market.day_of_week}s", farm_market_path(@farm, market) %><br>
+          <%= market.location %>
           <% end %>
       </h5>
     <% end %>
   </div>
-  <div class="market-info small-12 medium-6 centered columns">
+  <div id="product-list" class="market-info small-12 medium-6 centered columns">
     <% unless @farm.products.empty? %>
       <p>
         <h5>We're loaded down with:</h5><br>
         <% @farm.products.each do |product| %>
-          <%= product.item %><br>
+          <%= product.item %>, $<%= product.price %> per <%= product.quantity %><br>
         <% end %>
       </p>
     <% end %>

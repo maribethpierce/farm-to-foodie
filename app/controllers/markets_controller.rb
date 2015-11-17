@@ -8,7 +8,7 @@ class MarketsController < ApplicationController
   end
 
   def show
-    @farm = Farm.find(params[:id])
+    @farm = Farm.find(params[:farm_id])
     @market = Market.find(params[:id])
     @user = current_user
     @lat = @market.latitude
@@ -26,6 +26,8 @@ class MarketsController < ApplicationController
     if @user.farmer? == true
       @farm = @user.farm
       @market = Market.new(market_params)
+        @market.latitude = @market.geocode.first
+        @market.longitude = @market.geocode.last
       if @market.save
         flash[:notice] = "Market added!"
         redirect_to user_farm_path(@user, @farm)
@@ -48,16 +50,19 @@ class MarketsController < ApplicationController
     @user = current_user
     @markets = @farm.markets
     @market = Market.find(params[:id])
-    if @farm.user != @user
-      flash[:notice] = "You don't have permission to edit this!"
-      redirect_to :root_path
-    end
-    if @market.update(market_params)
-      flash[:notice] = "Successfully updated"
-      redirect_to farm_path(@farm)
+    if @farm.user == @user
+      if @market.update(market_params)
+        @market.latitude = @market.geocode.first
+        @market.longitude = @market.geocode.last
+        flash[:notice] = "Successfully updated"
+        redirect_to farms_path(@farm)
+      else
+        flash[:errors] = @market.errors.full_messages.join(', ')
+        render :new
+      end
     else
-      flash[:errors] = @market.errors.full_messages.join(', ')
-      render :new
+      flash[:notice] = "You don't have permission to edit this!"
+      redirect_to root_path
     end
   end
 
@@ -67,11 +72,11 @@ class MarketsController < ApplicationController
       @market = Market.find(params[:id])
       if @farm.user != @user
         flash[:notice] = "You don't have permission to delete this!"
-        redirect_to :root_path
+        redirect_to root_path
       end
       if @market.destroy
         flash[:notice] = "#{@market.item} deleted"
-        redirect_to farm_path(@farm)
+        redirect_to farms_path(@farm)
       end
     end
 
