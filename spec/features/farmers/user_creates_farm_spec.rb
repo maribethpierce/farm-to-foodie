@@ -14,16 +14,60 @@ feature 'farmer can add farm', %{
 
   feature "User can access the form to add a farm" do
 
-  #   before(:each) do
-  #     @user = FactoryGirl.create(:user)
-  #     @user1 = FactoryGirl.create(:user)
-  #     @user2 = FactoryGirl.create(:user)
-  #     visit new_user_session_path
-  #     fill_in 'Email', with: @group.user.email
-  #     fill_in 'Password', with: @group.user.password
-  #     click_button 'Log in'
-  #   end
-  #
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+      visit new_user_session_path
+
+      fill_in 'email', with: @user.email
+      fill_in 'password', with: @user.password
+
+      click_button 'Log in'
+      click_link('Update my Info')
+
+      check('user_farmer')
+      fill_in 'user_current_password', with: @user.password
+      click_button('Update')
+    end
+
+    scenario "User registered as farmer can create farm listing" do
+      visit root_path
+      click_link "List My Farm"
+
+      expect(page).to have_content("List your farm:")
+    end
+
+    scenario "User registered as farmer can lists their farm" do
+      visit root_path
+      click_link "List My Farm"
+      fill_in "farm_name", with: "Happy Farm"
+      fill_in "farm_email", with: "happy@farm.com"
+      fill_in "farm_phone", with: "1232343456"
+      fill_in "farm_address", with: "234 School Rd."
+      fill_in "farm_city", with: "ourtown"
+      fill_in "farm_state", with: "NC"
+      fill_in "farm_zip", with: "12345"
+
+      click_button "Add your Farm!"
+
+      expect(page).to have_content("Farm added!")
+      expect(page).to have_content("Happy Farm")
+    end
+
+    scenario "User registered as farmer fills out form incorrectly" do
+      visit root_path
+      click_link "List My Farm"
+      fill_in "farm_name", with: ""
+      fill_in "farm_email", with: ""
+      fill_in "farm_phone", with: ""
+      fill_in "farm_address", with: ""
+      fill_in "farm_city", with: ""
+      fill_in "farm_state", with: ""
+      fill_in "farm_zip", with: ""
+
+      click_button "Add your Farm!"
+      expect(page).to have_content("can't be blank")
+    end
+
   #   scenario "User can navigate to group show page" do
   #     visit root_path
   #     click_link "My Groups"

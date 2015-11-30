@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'pry'
 
 feature 'user sees show page', %{
   As a signed up user
@@ -41,12 +42,10 @@ feature 'user sees show page', %{
 
     fill_in 'user_email', with: "foo@bar.com"
     fill_in 'user_name', with: 'Juliette'
-    check('user_farmer')
     fill_in 'user_current_password', with: @user.password
     click_button('Update')
 
     expect(page).to have_content("Your account has been updated successfully.")
-    expect(@user.farmer?).to equal(true)
   end
 
   scenario 'user is taken to farms index after successful update' do
