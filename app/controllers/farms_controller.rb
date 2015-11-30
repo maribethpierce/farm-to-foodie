@@ -23,8 +23,8 @@ class FarmsController < ApplicationController
     @user = current_user
     if current_user.farmer? == true
       @farm = Farm.new(farm_params)
-      @farm.latitude = @farm.geocode.first
-      @farm.longitude = @farm.geocode.last
+        @farm.latitude = @farm.geocode.first
+        @farm.longitude = @farm.geocode.last
       # @farm.users << current_user
       if @farm.save
         flash[:notice] = "Farm added!"
