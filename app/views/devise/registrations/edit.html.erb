@@ -7,12 +7,12 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
   <div class="field">
-    <% f.label :name %><br />
+    <% f.label :name %><i>Name</i><br />
     <%= f.text_field :name, autofocus: true %>
   </div>
 
   <div class="field">
-    <% f.label :email %><br />
+    <% f.label :email %><i>Email</i><br /><br />
     <%= f.email_field :email %>
   </div>
 
@@ -31,13 +31,13 @@
   </div>
 
   <div class="field">
-    <h5><strong><%= f.check_box :farmer? %>
     <%= f.label :farmer %>Check here if you're a farmer</strong></h5>
+    <h5><strong><%= f.check_box :farmer %>
   </div>
 
   <div class="field">
-    <h5><strong><%= f.check_box :foodie? %>
     <%= f.label :foodie %>Check here if you're a foodie</strong></h5>
+    <h5><strong><%= f.check_box :foodie %>
   </div>
 
   <div class="field">

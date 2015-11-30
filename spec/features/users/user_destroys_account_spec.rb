@@ -15,25 +15,26 @@ feature 'user deletes account', %{
     @user = FactoryGirl.create(:user)
     visit new_user_session_path
 
-    fill_in 'Email', with: @user.email
-    fill_in 'Password', with: @user.password
+    fill_in 'email', with: @user.email
+    fill_in 'password', with: @user.password
     click_button 'Log in'
 
     click_link "Update my Info"
   end
 
   scenario 'user can delete account' do
-    find_button('Delete Account')
+
+    find_button('Delete my account')
   end
 
   scenario 'user is notified of successful deletion' do
-    click_button('Delete Account')
+    click_button('Delete my account')
 
-    expect(page).to have_content("Account deleted")
+    expect(page).to have_content("Your account has been successfully cancelled")
   end
 
   scenario 'user is taken to root page after deletion' do
-    click_button('Delete Account')
+    click_button('Delete my account')
 
     expect(current_path).to eq(root_path)
     expect(page).to_not have_content("#{@user.name}")
