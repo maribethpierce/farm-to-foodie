@@ -16,6 +16,7 @@ feature 'farmer can add farm', %{
 
     before(:each) do
       @user = FactoryGirl.create(:user)
+
       visit new_user_session_path
 
       fill_in 'email', with: @user.email
@@ -54,15 +55,16 @@ feature 'farmer can add farm', %{
     end
 
     scenario "User registered as farmer fills out form incorrectly" do
+      @farm = FactoryGirl.create(:farm)
       visit root_path
       click_link "List My Farm"
       fill_in "farm_name", with: ""
       fill_in "farm_email", with: ""
       fill_in "farm_phone", with: ""
-      fill_in "farm_address", with: ""
-      fill_in "farm_city", with: ""
-      fill_in "farm_state", with: ""
-      fill_in "farm_zip", with: ""
+      fill_in "farm_address", with: @farm.address
+      fill_in "farm_city", with: @farm.city
+      fill_in "farm_state", with: @farm.state
+      fill_in "farm_zip", with: @farm.zip
 
       click_button "Add your Farm!"
       expect(page).to have_content("can't be blank")
