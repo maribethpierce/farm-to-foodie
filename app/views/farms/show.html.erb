@@ -16,7 +16,7 @@
       <%= button_to "Update Information", edit_user_farm_path(@user, @farm), class: 'registration-form button round tiny', method: :get %>
     </div>
     <div class="farm-buttons small-3 centered columns">
-      <%= button_to "Delete Farm", edit_farm_path(@farm), class: 'registration-form button round tiny', method: :get %>
+      <%= button_to "Delete Farm", user_farm_path(@user.id, @farm), class: 'registration-form button round tiny', data: { confirm: "Are you sure? All of your information will be lost forever." }, method: :delete %>
     </div>
     <% end %>
   </div>

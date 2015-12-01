@@ -72,5 +72,23 @@ feature 'farmer can edit and delete their farm', %{
       expect(page).to have_content("can't be blank")
     end
 
+    scenario "User registered as farmer can delete their farm listing" do
+      @user = FactoryGirl.create(:user)
+      @farm = FactoryGirl.create(:farm, user: @user)
+
+      visit root_path
+      click_link "My Farm"
+
+      expect(page).to have_content("Delete Farm")
+    end
+
+    scenario "User registered as farmer can delete their farm listing" do
+      visit root_path
+      click_link "My Farm"
+      click_button "Delete Farm"
+
+      expect(page).to have_content("Are you sure? All of your information will be lost forever.")
+    end
+
   end
 end

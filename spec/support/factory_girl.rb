@@ -10,8 +10,8 @@ FactoryGirl.define do
   end
 
   factory :farm do
-    name 'Happy Valley Farm'
-    email 'happy@valleyemail.com'
+    sequence(:name) { |n| "Happy Valley Farm#{n}" }
+    sequence(:email) {|n| "farm#{n}@example.com" }
     phone '1232343456'
     address '234 Water St.'
     city 'Harrisonburg'
