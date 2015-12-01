@@ -25,7 +25,6 @@ class FarmsController < ApplicationController
       @farm = Farm.new(farm_params)
         @farm.latitude = @farm.geocode.first
         @farm.longitude = @farm.geocode.last
-      # @farm.users << current_user
       if @farm.save
         flash[:notice] = "Farm added!"
         redirect_to root_path
