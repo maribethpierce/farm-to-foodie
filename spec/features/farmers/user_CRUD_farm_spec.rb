@@ -30,7 +30,7 @@ feature 'farmer can edit and delete their farm', %{
       click_button('Update')
     end
 
-    scenario "Farmer can edit their farm listing" do
+    scenario "Farmer can navigate to farm edit form their farm listing" do
       visit root_path
       click_link "My Farm"
       click_button "Update Information"
