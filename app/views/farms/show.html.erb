@@ -1,22 +1,22 @@
 <div class="farm-info small-12 centered columns">
   <div class="farm-details small-5 columns">
-    <h1><%= @farm.name %></h1>
+    <h1><%= @farm.name %></h1><br>
     <% if current_user == @farm.user %>
-    <div class="farm-buttons small-3 centered columns">
+    <div class="farm-buttons large-4 medium-5 small-12 centered columns">
       <%= button_to "Add Produce", new_farm_product_path(@farm), class: "registration-form button round tiny", method: :get %>
     </div>
-    <div class="farm-buttons small-3 centered columns">
+    <div class="farm-buttons large-4 medium-5 small-12 centered columns">
       <% if @farm.markets.empty? %>
         <%= button_to "Add Market", new_farm_market_path(@farm), class: "registration-form button round tiny", method: :get %>
       <% else %>
         <%= button_to "My Markets", farm_markets_path(@farm), class: "registration-form button round tiny", method: :get %>
       <% end %>
     </div>
-    <div class="farm-buttons small-3 centered columns">
-      <%= button_to "Update Information", edit_user_farm_path(@user, @farm), class: 'registration-form button round tiny', method: :get %>
+    <div class="farm-buttons large-4 medium-5 small-12 centered columns">
+      <%= button_to "Update Info", edit_user_farm_path(@user, @farm), class: 'registration-form button round tiny', method: :get %>
     </div>
-    <div class="farm-buttons small-3 centered columns">
-      <%= button_to "Delete Farm", user_farm_path(@user.id, @farm), class: 'registration-form button round tiny', data: { confirm: "Are you sure? All of your information will be lost forever." }, method: :delete %>
+    <div class="farm-buttons small-12 centered columns">
+      <%= button_to "Delete Farm", user_farm_path(@user.id, @farm), class: 'registration-form-delete button round tiny', method: :delete %>
     </div>
     <% end %>
   </div>
