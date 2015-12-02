@@ -6,10 +6,10 @@ feature 'farmer can edit and delete their farm', %{
   so that I can correct and remove my details
 
   Acceptance Criteria
-  [] - As a farmer, I can see the form to edit details re: my farm
-  [] - As a farmer, I can fill out the form and save my details
-  [] - I get error messages if I fill out the form incorrectly
-  [] - I can delete my farm
+  [√] - As a farmer, I can see the form to edit details re: my farm
+  [√] - As a farmer, I can fill out the form and save my details
+  [√] - I get error messages if I fill out the form incorrectly
+  [√] - I can delete my farm
 } do
 
   feature "User can access the form to edit their farm" do
