@@ -31,7 +31,10 @@
               <% else %>
                 <li><%= link_to "My Farm", user_farm_path(@user.id, @user.farm.id) %></li>
               <% end %>
-          <% end %>
+            <% end %>
+            <% if @user.foodie? %>
+              <li><%= link_to "Search for ingredients" %></li>
+            <% end %>
 
             <li><%= link_to 'Update my Info', edit_user_registration_path %></li>
             <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
