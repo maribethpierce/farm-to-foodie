@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :farms
   end
+  resources :products, only: [:index]
   resources :farms do
     resources :products
   end

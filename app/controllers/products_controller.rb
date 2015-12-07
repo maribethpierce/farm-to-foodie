@@ -2,8 +2,13 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @farm = Farm.find(params[:id])
-    @products = @farm.products
+    @user = current_user
+    # @farm = Farm.find(params[:id])
+    if params[:search]
+      @products = Product.search(params[:search])#.page #params[:page]
+    else
+      @products = Product.order(:name)#.page #params[:page]
+    end
   end
 
   def new

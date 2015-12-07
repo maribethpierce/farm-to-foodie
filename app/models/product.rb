@@ -5,4 +5,8 @@ class Product < ActiveRecord::Base
   validates :quantity, length: { maximum: 15 }
   validates :price, numericality: true
   validates :price, length: { maximum: 5 }
+
+  def self.search(query)
+    where("item ILIKE ?", "%#{query}%")
+  end
 end
