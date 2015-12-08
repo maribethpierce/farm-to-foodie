@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
     if params[:search]
       @products = Product.search(params[:search])#.page #params[:page]
     else
-      @products = Product.order(:name)#.page #params[:page]
+      @products = Product.all#.page #params[:page]
     end
   end
 
