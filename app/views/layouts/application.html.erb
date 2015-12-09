@@ -32,7 +32,6 @@
                 <li><%= link_to "My Farm", user_farm_path(@user.id, @user.farm.id) %></li>
               <% end %>
             <% end %>
-            <% if @user.foodie? %>
             <li>
               <%= form_tag(products_path, :method => "get", class: "navbar-form", id: "search-form") do %>
               <%= text_field_tag :search, params[:search], class: "search", placeholder: "Search Products" %>
@@ -40,7 +39,6 @@
             <li>
               <%= submit_tag "Search", name: nil, class: "search-crud-buttons button" %>
             </li>
-              <%- end -%>
             <% end %>
             <li><%= link_to 'Update my Info', edit_user_registration_path %></li>
             <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
