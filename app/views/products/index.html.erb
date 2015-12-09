@@ -6,8 +6,9 @@
   Farm to Foodie
   </h1>
   <h5>
-    <strong>So you're looking for <br><%= "#{@product.first.item}" %>.</strong><br>
-      Check out<br> <% @farms.shuffle.each do |farm| %>
+    <strong>So you're looking for <%= "#{@searched}" %>.</strong><br>
+      Check out<br>
+      <% @farms.shuffle.each do |farm| %>
           <%=  "#{farm.name}" %><br>
       <% end %>
     They have some. Click their link below for more information. <br><br>Thanks for supporting your local farmers.<br><br>
