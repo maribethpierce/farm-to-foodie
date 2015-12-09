@@ -3,14 +3,19 @@ class ProductsController < ApplicationController
 
   def index
     @user = current_user
-    if params[:search]
+    if params[:search] != nil
+      @searched = params[:search]
       @product = Product.search(params[:search])
       @farms = []
       @product.each do |item|
         @farms << item.farm
       end
     else
-      @products = Product.all#.page #params[:page]
+      @product = Product.all
+      @farms = []
+      @product.each do |item|
+        @farms << item.farm
+      end
     end
   end
 
