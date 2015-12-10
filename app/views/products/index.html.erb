@@ -5,23 +5,28 @@
   <h1>
   Farm to Foodie
   </h1>
-  <h5>
-    <strong>So you're looking for <%= "#{@searched}" %>.</strong><br>
-      Check out<br>
-      <% @farms.shuffle.each do |farm| %>
-          <%=  "#{farm.name}" %><br>
-      <% end %>
-    They have some. Click their link below for more information. <br><br>Thanks for supporting your local farmers.<br><br>
-    <strong><em>Local Food, thousands of miles fresher!</em></strong>
-  </h5>
-  <strong><h3></h3></strong><br><br>
-  <div class="farm-buttons" >
-    <% @farms.shuffle.each do |farm| %>
-        <div class="farm-details small-3 centered columns">
-          <%= link_to "#{farm.name}", farm_path(farm), class: "registration-form button round tiny" %><br>
+    <h5><strong>So you're looking for <%= "#{@searched}" %>.</strong><br>
+    <% if @product.length > 0 %>
+          Check out<br>
+          <% @farms.shuffle.each do |farm| %>
+              <%=  "#{farm.name}" %><br>
+          <% end %>
+        They have some. Click their link below for more information. <br><br>And thanks for supporting your local farmers.<br><br>
+        <strong><em>Local Food, thousands of miles fresher!</em></strong>
+    </h5><br><br>
+      <div class="farm-buttons" >
+        <% @farms.shuffle.each do |farm| %>
+          <div class="farm-details small-3 centered columns">
+            <%= link_to "#{farm.name}", farm_path(farm), class: "registration-form button round tiny" %><br>
+          </div>
+        <% end %>
       </div>
+    <% else %>
+      <h5>
+        Sorry, no farms have listed <%= "#{@searched}" %> as available this week.<br>
+        Check back often. The list of what's in season is always changing.
+      </h5>
     <% end %>
-  </div>
 </div>
 <div class="left-sideshow small-1 medium-2 large-3 centered columns">
   <h1> </h1>
