@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
       @product.each do |item|
         @farms << item.farm
       end
-    else
+    elsif params[:search] == ""
       @product = Product.all
       @farms = []
       @product.each do |item|
