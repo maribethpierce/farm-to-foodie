@@ -5,6 +5,7 @@
   <h1>
   Farm to Foodie
   </h1>
+  <% if @searched.length > 0 %>
     <h5><strong>So you're looking for <%= "#{@searched}" %>.</strong><br>
     <% if @product.length > 0 %>
           Check out<br>
@@ -27,6 +28,9 @@
         Check back often. The list of what's in season is always changing.
       </h5>
     <% end %>
+  <% else %>
+    <h5>Your search returned no results.</h5>
+  <% end %>
 </div>
 <div class="left-sideshow small-1 medium-2 large-3 centered columns">
   <h1> </h1>
