@@ -1,1 +1,41 @@
-<h1>Restaurant Show</h1>
+<div class="farm-info small-12 centered columns">
+  <div class="farm-details small-5 columns">
+    <h1><%= @restaurant.name %></h1><br>
+    <% if current_user == @restaurant.user %>
+    <div class="farm-buttons large-4 medium-5 small-12 centered columns">
+      <%= button_to "Update Info", edit_user_farm_path(@user, @restaurant), class: 'registration-form button round tiny', method: :get %>
+    </div>
+    <div class="farm-buttons small-12 centered columns">
+      <%= button_to "Delete Restaurant", user_restaurant_path(@user.id, @restaurant), class: 'registration-form-delete button round tiny', method: :delete %>
+    </div>
+    <% end %>
+  </div>
+  <div class="farm-details small-5 columns">
+    <h5><%= @restaurant.name %></h5>
+    <p>
+      <%= @restaurant.email %><br>
+      <%= @restaurant.address %><br>
+      <%= @restaurant.city %>,
+      <%= @restaurant.state %>
+      <%= @restaurant.zip %>
+    </p>
+  </div>
+</div>
+<div class="left-sideshow-info small-12 medium-9 large-5 centered columns">
+  <div class="market-info small-12 medium-6 centered columns">
+    <h1></h1>
+  </div>
+  <div id="product-list" class="market-info small-12 medium-6 centered columns">
+    <h1></h1>
+  </div>
+</div>
+<div class="map-container small-12 medium-5 large-4 centered columns">
+  <div id="farm-map" class="farm-info"
+    data-farm=<%= @restaurant.name %>
+    data-lat=<%= @restaurant.latitude %>
+    data-lng=<%= @restaurant.longitude %> >
+  </div>
+</div>
+<div class="right-sideshow small-0 medium-1 large-1 centered columns">
+  <h1></h1>
+</div>
