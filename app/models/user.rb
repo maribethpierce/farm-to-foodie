@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :farmer, inclusion: [true, false]
   validates :foodie, inclusion: [true, false]
+  validates :restaurant, inclusion: [true, false]
 
   def farmer?
     farmer
@@ -17,6 +18,10 @@ class User < ActiveRecord::Base
 
   def admin?
     admin
+  end
+
+  def restaurant?
+    restaurant
   end
 
   devise :database_authenticatable, :registerable,
