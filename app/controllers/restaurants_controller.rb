@@ -8,7 +8,6 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    @market = @restaurant.markets
     @user = current_user
     @lat = @restaurant.latitude
     @lng = @restaurant.longitude
