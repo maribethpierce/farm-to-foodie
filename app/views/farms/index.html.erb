@@ -6,10 +6,16 @@
   Farm to Foodie
   </h1>
   <h5>
-    <strong>Welcome!</strong><br> Thanks for stopping by.<br>Check out these
-    farms, <br>find for farms near you, <br>search for ingredients for this
-    weekend's dinner... <br>Most of all, support your local farmers.<br><br>
-    <strong><em>Local Food, thousands of miles fresher!</em></strong>
+    <div class="farm-buttons">
+      <div class="farm-details">
+        <strong>Welcome!</strong><br> Thanks for stopping by.<br>Check out these
+        farms, find for farms near you, <br>search for ingredients for this
+        weekend's dinner... <br>Alternatively, check out these <%= link_to "Restaurants", restaurants_path, class: "registration-form button round tiny" %>
+        They source their ingredients from these local farms.<br>
+        Most of all, support your local farmers.<br><br>
+        <strong><em>Local Food, thousands of miles fresher!</em></strong>
+        </div>
+      </div>
   </h5>
   <strong><h3></h3></strong><br><br>
   <div class="farm-buttons" >
