@@ -12,10 +12,15 @@
   </h5>
   <strong><h3></h3></strong><br><br>
   <div class="farm-buttons" >
-    <% @restaurants.shuffle.each do |restaurant| %>
-        <div class="farm-details small-3 centered columns">
-          <%= link_to "#{restaurant.name}", restaurant_path(restaurant), class: "registration-form button round tiny" %><br>
-      </div>
+    <% if @restaurants.length > 0 %>
+      <% @restaurants.shuffle.each do |restaurant| %>
+          <div class="farm-details small-3 centered columns">
+            <%= link_to "#{restaurant.name}", restaurant_path(restaurant), class: "registration-form button round tiny" %><br>
+        </div>
+      <% end %>
+    <% else %>
+      <p>So far, no restaurants have signed up to source their food locally.
+      If you would like to encourage your favorite restaurant to consider sourcing their food like this, talk to the manager about signing up.</p>
     <% end %>
   </div>
 </div>
