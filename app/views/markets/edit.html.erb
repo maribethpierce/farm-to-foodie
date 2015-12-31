@@ -35,12 +35,18 @@
     <br>
     <% f.hidden_field :latitude %>
     <% f.hidden_field :longitude %>
-  <div class="actions">
-    <%= f.submit "Update your Market!", class: "registration-form button  round medium" %>
+  <div class="farm-buttons">
+    <div class="farm-details">
+      <%= f.submit "Update your Market!", class: "registration-form button  round medium" %>
+    </div>
   </div>
   <% end %>
-  <%= button_to "Back to #{@farm.name}!", farm_path(@farm), class: 'registration-form button  round medium', method: :get %>
-  <%= button_to "Back to home", farms_path, class: "registration-form button  round medium", method: :get %>
+  <div class="farm-buttons">
+    <div class="farm-details">
+      <%= button_to "Back to #{@farm.name}!", farm_path(@farm), class: 'registration-form button  round medium', method: :get %>
+      <%= button_to "Back to home", farms_path, class: "registration-form button  round medium", method: :get %>
+    </div>
+</div>
   </div>
 </div>
 <div class="left-sideshow small-1 medium-2 large-3 centered columns">
