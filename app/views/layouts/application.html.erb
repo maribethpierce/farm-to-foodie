@@ -25,6 +25,13 @@
       <section class="top-bar-section">
         <ul class="right">
           <%- if user_signed_in? -%>
+            <% if @user.restauranter? %>
+              <% if @user.restaurant.nil? %>
+                <li><%= link_to 'List My Restaurant', new_user_restaurant_path(@user) %></li>
+              <% else %>
+                <li><%= link_to "My Restaurant", user_restaurant_path(@user.id, @user.restaurant.id) %></li>
+              <% end %>
+            <% end %>
             <% if @user.farmer? %>
               <% if @user.farm.nil? %>
                 <li><%= link_to 'List My Farm', new_user_farm_path(@user) %></li>

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_one :farm
   has_many :orders
+  has_one :restaurant
 
   validates :email, uniqueness: true
   validates :name, presence: true
@@ -20,8 +21,8 @@ class User < ActiveRecord::Base
     admin
   end
 
-  def restaurant?
-    restaurant
+  def restauranter?
+    restauranter
   end
 
   devise :database_authenticatable, :registerable,
